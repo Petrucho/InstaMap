@@ -2,37 +2,49 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="/stylesheets/normalize.css">
-    <link rel="stylesheet" href="/stylesheets/application.css">
+    <title>Geocoding Service</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <style>
+        /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+        #map {
+            height: 100%;
+        }
 
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script src="/js/application.js"></script>
+        /* Optional: Makes the sample page fill the window. */
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
 
-    <title>Broccoli Blog</title>
+        #floating-panel {
+            position: absolute;
+            top: 10px;
+            left: 25%;
+            z-index: 5;
+            background-color: #fff;
+            padding: 5px;
+            border: 1px solid #999;
+            text-align: center;
+            font-family: 'Roboto', 'sans-serif';
+            line-height: 30px;
+            padding-left: 10px;
+        }
+    </style>
+    <script async defer src="./js/application.js"></script>
 </head>
 
 <body>
-    <header role="banner" class="mar-t-5 pad-t-2 pad-b-4 pad-s-1 wrap-float bg-white">
-        <div class="max-w-700 center wrap-float">
-            <nav class="clearfix mar-b-1">
-                <ul class="no-bullets no-margin no-padding right">
-                    <li class="pipe-separate t-light-green left"><a href="/">home</a></li>
-                    <li class="pipe-separate t-light-green left"><a href="/login">Login</a></li>
-                    <li class="pipe-separate t-light-green left"><a href="/logout">Log out</a></li>
-                </ul>
-            </nav>
-
-            <div class="logo-container">
-                <img class="logo" src="/images/logo.png" class="center block">
-                <h1>Broccoli Blog</h1>
-            </div>
-        </div>
-    </header>
-    <div class="bg-dk-green pad-t-2 pad-s-1 pad-b-8 mar-b-16 c-white">
-        <div class="max-w-700 center">
-            {{{body}}}
-        </div>
+    <div id="floating-panel">
+        <input id="address" type="textbox" value="Sydney, NSW">
+        <input id="submit" type="button" value="Geocode">
     </div>
+    <div id="map"></div>
+
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key={{key}}&callback=initMap"></script>
 </body>
 
 </html>
